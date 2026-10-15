@@ -22,6 +22,11 @@
 
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
+&lt {
+    tapping-term-ms = <100>;
+    flavor = "hold-preferred";
+};
+
 &msc {
     acceleration-exponent = <0>;      // 0
     time-to-max-speed-ms = <0>;       // 300
@@ -91,44 +96,33 @@
             >;
             sensor-bindings = <&rsr_vol &rsr_trans>;
 
-            display-name = "LAYER0";
+            display-name = "L0";
         };
 
         layer_1 {
             bindings = <
-&kp GRAVE   &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &mmv MOVE_UP     &kp F6           &kp F7           &kp F8      &kp F9     &kp F10           &trans
-&trans      &kp GRAVE        &mkp LCLK       &mkp MCLK        &mkp RCLK        &mkp MB4           &mmv MOVE_DOWN   &kp PG_UP        &kp END          &kp UP      &kp HOME   &kp MINUS         &kp EQUAL
-&trans      &kp TILDE        &trans          &trans           &trans           &mkp MB5           &mmv MOVE_LEFT   &kp PG_DN        &kp LEFT         &kp DOWN    &kp RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans      &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &mmv MOVE_RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp INSERT  &kp F11    &kp F12           &trans
-&kp C_MUTE  &trans           &trans          &trans           &trans           &trans &mkp LCLK        &trans           &trans           &trans      &trans     &trans
+&kp TILDE     &kp F1                &kp F2           &kp F3          &kp F4         &kp F5       &mmv MOVE_UP     &kp F8          &kp F9           &kp F10          &kp F11          &kp F12           &trans
+&trans        &kp LC(LS(NUMBER_1))  &kp LA(LC(DEL))  &kp LS(ESCAPE)  &kp LS(GRAVE)  &kp F6       &mmv MOVE_DOWN   &kp F7          &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS         &kp EQUAL
+&kp CAPSLOCK  &kp TILDE             &trans           &kp LG(D)       &kp LG(SPACE)  &kp LG(L)    &mmv MOVE_LEFT   &trans          &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&trans        &trans                &kp LA(F4)       &trans          &mkp LCLK      &mkp RCLK    &mmv MOVE_RIGHT  &kp KP_NUMLOCK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans            &trans
+&kp C_MUTE    &out OUT_TOG          &trans           &trans          &trans         &trans       &mkp LCLK        &trans          &trans           &trans           &kp KP_NUMBER_0  &trans
             >;
 
-            display-name = "layer1";
+            display-name = "L1";
             sensor-bindings = <&rsr_vol &rsr_trans>;
 
         };
 
         layer_2 {
             bindings = <
-&kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6  &kp F7  &kp F8      &kp F9     &kp F10      &trans
-&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &kp F11     &kp F12    &kp UNDER    &kp PLUS
-&trans &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &trans  &trans  &trans      &trans     &kp LBRC     &kp RBRC
-&trans     &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &sys_reset  &soft_off  &bootloader  &trans
-&trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans      &trans     &trans
+&kp TILDE  &trans  &trans  &trans  &trans  &trans    &mmv MOVE_UP     &trans  &trans      &trans        &trans      &trans       &sys_reset
+&trans     &trans  &trans  &trans  &trans  &trans    &mmv MOVE_DOWN   &trans  &kp HOME    &kp UP_ARROW  &kp END     &kp UNDER    &kp PLUS
+&trans     &trans  &trans  &trans  &trans  &trans    &mmv MOVE_LEFT   &trans  &kp LEFT    &kp DOWN      &kp RIGHT   &kp LBRC     &kp RBRC
+&trans     &trans  &trans  &trans  &trans  &trans    &mmv MOVE_RIGHT  &trans  &kp INSERT  &trans        &kp DELETE  &bootloader  &rgb_ug RGB_TOG
+&trans     &trans  &trans  &trans  &trans  &trans    &mkp LCLK        &trans  &trans      &trans        &trans      &soft_off
             >;
-             display-name = "layer2";
+             display-name = "L2";
             sensor-bindings = <&rsr_vol &rsr_trans>;
-        };
-
-        layer_3 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-   display-name = "layer3";
         };
     };
 };
